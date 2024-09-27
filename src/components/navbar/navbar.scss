@@ -1,0 +1,65 @@
+@import "../../styles/responsive.scss";
+
+.navbar {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: -1px 7px 7px 2px #ededed;
+  margin-bottom: 75px;
+
+  .logo {
+    display: flex;
+    max-width: 40px;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .icon{
+      @include sm{
+        display: none;
+      }
+    }
+
+    .notification {
+      position: relative;
+
+      span {
+        background-color: rgb(255, 0, 0);
+        color: #fff;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+      }
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      img {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+}
