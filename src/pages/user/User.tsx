@@ -1,12 +1,23 @@
+import { useState, useEffect } from "react";
+import env from "react-dotenv";
+import axios from "axios";
 import Single from "../../components/single/Single";
-import { singleUser } from "../../data";
 
 const User = () => {
-  return (
-    <div className="user">
-      <Single {...singleUser} />
-    </div>
-  );
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    axios
+      .get(`${env.REACT_API_URL}:${env.REACT_PORT}/users/1`)
+      .then(function (response) {
+        setUser(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
+  return <div className="user">{user && <Single {...user} />}</div>;
 };
 
 export default User;

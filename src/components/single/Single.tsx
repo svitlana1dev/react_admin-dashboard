@@ -27,11 +27,11 @@ const Single: FC<Props> = ({ img, verified, info, chart, activities }) => {
       <div className="view">
         <div className="content">
           <div className={`top-info ${verified ? "top-info--verified" : ""}`}>
-            {img && <img src={img} alt="user" />}
+            {img && <img src={img} alt="image" />}
           </div>
           <div className="details">
-            {Object.entries(info).map((item) => (
-              <div className="item" key={item[0]}>
+            {Object.entries(info).map((item, index) => (
+              <div className="item" key={item[0] + index}>
                 <span className="item-title">{item[0]}</span>
                 <span className="item-value">{item[1]}</span>
               </div>
@@ -73,8 +73,8 @@ const Single: FC<Props> = ({ img, verified, info, chart, activities }) => {
         <h2>Latest Activities</h2>
         {activities && (
           <ul>
-            {activities.map((activity) => (
-              <li key={activity.text}>
+            {activities.map((activity, index) => (
+              <li key={activity.text + index}>
                 <div>
                   <p>{activity.text}</p>
                   <time>{activity.time}</time>
