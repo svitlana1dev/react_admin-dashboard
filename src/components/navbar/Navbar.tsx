@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="logo">
-        <img src={require("../../assets/images/logo/logo.png")} alt="logo" />
+        <img src={"./logo.png"} alt="logo" />
       </div>
       <div className="icons">
         <img
@@ -30,11 +30,8 @@ const Navbar = () => {
           <span>1</span>
         </div>
         <div className="user">
-          <img
-            src={require("../../assets/images/users/user.png")}
-            alt="user photo"
-          />
-          <span>Demo User</span>
+          <img src={"./user.png"} alt="user photo" />
+          <span>Hubbard Eula</span>
         </div>
         <img
           src={require("../../assets/images/icons/settings.svg").default}

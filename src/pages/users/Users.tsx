@@ -1,8 +1,11 @@
+import { useEffect } from "react";
+import env from "react-dotenv";
+import axios from "axios";
 import { GridColDef } from "@mui/x-data-grid";
 import DataTable from "../../components/dataTable/DataTable";
 import { useState } from "react";
 import Add from "../../components/add/Add";
-import { userRows } from "../../data";
+// import { userRows } from "../../data";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -11,24 +14,17 @@ const columns: GridColDef[] = [
     headerName: "Avatar",
     width: 100,
     renderCell: (params) => {
-      return (
-        <img
-          src={
-            params.row.img || require("../../assets/images/users/noavatar.png")
-          }
-          alt=""
-        />
-      );
+      return <img src={params.row.img || "./noavatar.png"} alt="" />;
     },
   },
   {
-    field: "firstName",
+    field: "firstname",
     type: "string",
     headerName: "First name",
     width: 150,
   },
   {
-    field: "lastName",
+    field: "lastname",
     type: "string",
     headerName: "Last name",
     width: 150,
@@ -61,9 +57,22 @@ const columns: GridColDef[] = [
 
 const Users = () => {
   const [open, setOpen] = useState(false);
+  const [users, setUsers] = useState([]);
   const toggleModal = () => {
     setOpen((currentState) => !currentState);
   };
+
+  useEffect(() => {
+    setUsers([]);
+    axios
+      .get(`${env.REACT_API_URL}:${env.REACT_PORT}/users`)
+      .then(function (response) {
+        setUsers(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="users">
@@ -73,7 +82,7 @@ const Users = () => {
           <img src={require("../../assets/images/icons/plus.png")} alt="add" />
         </button>
       </div>
-      <DataTable slug="users" columns={columns} rows={userRows} />
+      <DataTable slug="users" columns={columns} rows={users} />
       {open && <Add slug="user" columns={columns} onClose={toggleModal} />}
     </div>
   );
