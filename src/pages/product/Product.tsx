@@ -8,7 +8,7 @@ const Product = () => {
 
   useEffect(() => {
     axios
-      .get(`${env.REACT_API_URL}:${env.REACT_PORT}/products/1`)
+      .get(`${env.REACT_API_URL}:${env.API_PORT}/products/1`)
       .then(function (response) {
         setProduct(response.data);
       })

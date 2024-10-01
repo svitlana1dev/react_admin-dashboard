@@ -65,7 +65,7 @@ const Users = () => {
   useEffect(() => {
     setUsers([]);
     axios
-      .get(`${env.REACT_API_URL}:${env.REACT_PORT}/users`)
+      .get(`${env.REACT_API_URL}:${env.API_PORT}/users`)
       .then(function (response) {
         setUsers(response.data);
       })
