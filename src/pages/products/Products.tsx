@@ -64,7 +64,7 @@ const Products = () => {
   useEffect(() => {
     setProducts([]);
     axios
-      .get(`${env.REACT_API_URL}:${env.REACT_PORT}/products`)
+      .get(`${env.REACT_API_URL}:${env.API_PORT}/products`)
       .then(function (response) {
         setProducts(response.data);
       })
