@@ -8,7 +8,7 @@ const User = () => {
 
   useEffect(() => {
     axios
-      .get(`${env.REACT_API_URL}:${env.API_PORT}/users/1`)
+      .get(`${env.REACT_API_URL}/users/1`)
       .then(function (response) {
         setUser(response.data);
       })
