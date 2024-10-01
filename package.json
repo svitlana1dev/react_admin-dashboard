@@ -3,15 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "main": "dist/index.js",
-  "homepage": "https://svitlana1dev.github.io/react_admin-dashboard",
   "scripts": {
     "start": "concurrently --kill-others \"npm run server\" \"npm run client\"",
-    "client": "react-dotenv && tsc && react-scripts start",
+    "client": "react-dotenv && react-scripts start",
     "server": "node public/server.js",
-    "build": "tsc",
+    "build": "react-dotenv && tsc",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy:client": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
