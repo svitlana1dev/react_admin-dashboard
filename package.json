@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "main": "dist/index.js",
+  "homepage": "https://svitlana1dev.github.io/react_admin-dashboard",
   "scripts": {
     "start": "concurrently --kill-others \"npm run server\" \"npm run client\"",
     "client": "react-dotenv && tsc && react-scripts start",
     "server": "node public/server.js",
-    "build": "react-dotenv && npx tsc",
+    "build": "tsc",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy:client": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -39,7 +41,8 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.109",
     "@types/react": "^18.3.9",
-    "@types/react-dom": "^18.3.0"
+    "@types/react-dom": "^18.3.0",
+    "gh-pages": "^6.1.1"
   },
   "eslintConfig": {
     "extends": [
