@@ -9,7 +9,7 @@ const TopBox = () => {
 
   useEffect(() => {
     axios
-      .get(`${env.REACT_API_URL}:${env.API_PORT}/users`)
+      .get(`${env.REACT_API_URL}/users`)
       .then(function (response) {
         setTopDealUsers(
           response.data.filter(
