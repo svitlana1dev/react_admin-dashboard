@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "1",
-      "img": "/user.png",
+      "img": "./user.png",
       "lastname": "Hubbard",
       "firstname": "Eula",
       "email": "kewez@@gmail.com",
