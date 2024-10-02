@@ -16,7 +16,15 @@ const router = jsonServer.router(data);
 
 server.use(middlewares);
 
-server.use(cors());
+server.use(
+  cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: ["Content-Type", "Authorization"],
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  })
+);
 
 server.use(
   jsonServer.rewriter({
