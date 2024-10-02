@@ -2,7 +2,7 @@
 
 This project built using React, TypeScript, Material UI, and several other modern web technologies. The dashboard provides a user-friendly interface for managing and visualizing data, equipped with features such as data tables, charts.
 
-[VIEW DEMO](https://react-admin-dashboard-wheat-xi.vercel.app/)
+[VIEW DEMO](https://svitlana1dev.github.io/react_admin-dashboard/)
 
 ## Features
 
