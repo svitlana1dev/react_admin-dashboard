@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react_admin-dashboard/static/css/main.e14568bc.css",
-    "main.js": "/react_admin-dashboard/static/js/main.2b277ec4.js",
+    "main.js": "/react_admin-dashboard/static/js/main.8ff37129.js",
     "static/media/productIcon.svg": "/react_admin-dashboard/static/media/productIcon.6031ed4b9b3c370b2661fdede245e72a.svg",
     "static/media/userIcon.svg": "/react_admin-dashboard/static/media/userIcon.3d8a9dfa2b95ea75182ab7e2a300d690.svg",
     "static/media/conversionIcon.svg": "/react_admin-dashboard/static/media/conversionIcon.da56d266a57ff04083b903b7972ba7de.svg",
@@ -27,10 +27,10 @@
     "static/media/app.svg": "/react_admin-dashboard/static/media/app.2de95f016dd8e3f85e3697ba13efb992.svg",
     "static/media/search.svg": "/react_admin-dashboard/static/media/search.ca8c060fb5fdc8c8cfa4390b7b8cd665.svg",
     "main.e14568bc.css.map": "/react_admin-dashboard/static/css/main.e14568bc.css.map",
-    "main.2b277ec4.js.map": "/react_admin-dashboard/static/js/main.2b277ec4.js.map"
+    "main.8ff37129.js.map": "/react_admin-dashboard/static/js/main.8ff37129.js.map"
   },
   "entrypoints": [
     "static/css/main.e14568bc.css",
-    "static/js/main.2b277ec4.js"
+    "static/js/main.8ff37129.js"
   ]
 }
