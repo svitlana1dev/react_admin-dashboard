@@ -7,6 +7,8 @@ const middlewares = jsonServer.defaults();
 const dotenv = require("dotenv");
 dotenv.config();
 
+const cors = require("cors");
+
 const data = JSON.parse(
   fs.readFileSync(path.join(__dirname, "db.json"), "utf-8")
 );
@@ -14,8 +16,9 @@ const router = jsonServer.router(data);
 
 server.use(middlewares);
 
+server.use(cors());
+
 server.use(
-  // Add custom route here if needed
   jsonServer.rewriter({
     "/api/*": "/$1",
   })
