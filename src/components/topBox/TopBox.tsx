@@ -6,7 +6,6 @@ import { User } from "../../types/types";
 
 const TopBox = () => {
   const [topDealUsers, setTopDealUsers] = useState([]);
-
   useEffect(() => {
     axios
       .get(`${env.REACT_API_URL}/users`)
