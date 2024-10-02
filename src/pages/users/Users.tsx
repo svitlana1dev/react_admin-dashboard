@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import env from "react-dotenv";
 import axios from "axios";
 import { GridColDef } from "@mui/x-data-grid";
 import DataTable from "../../components/dataTable/DataTable";
@@ -65,11 +64,11 @@ const Users = () => {
   useEffect(() => {
     setUsers([]);
     axios
-      .get(`${env.REACT_API_URL}/users`)
-      .then(function (response) {
+      .get("/users")
+      .then((response) => {
         setUsers(response.data);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   }, []);

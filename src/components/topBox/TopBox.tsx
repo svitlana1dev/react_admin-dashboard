@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import env from "react-dotenv";
 import axios from "axios";
 import "./topBox.scss";
 import { User } from "../../types/types";
@@ -8,15 +7,15 @@ const TopBox = () => {
   const [topDealUsers, setTopDealUsers] = useState([]);
   useEffect(() => {
     axios
-      .get(`${env.REACT_API_URL}/users`)
-      .then(function (response) {
+      .get("/users")
+      .then((response) => {
         setTopDealUsers(
           response.data.filter(
             (data: { amount: string | number }) => +data.amount > 3
           )
         );
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   }, []);

@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
-import env from "react-dotenv";
 import axios from "axios";
 import DataTable from "../../components/dataTable/DataTable";
 import Add from "../../components/add/Add";
 import { GridColDef } from "@mui/x-data-grid";
-// import { products } from "../../data";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -64,11 +62,11 @@ const Products = () => {
   useEffect(() => {
     setProducts([]);
     axios
-      .get(`${env.REACT_API_URL}/products`)
-      .then(function (response) {
+      .get("/products")
+      .then((response) => {
         setProducts(response.data);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   }, []);

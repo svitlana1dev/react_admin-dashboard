@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import env from "react-dotenv";
 import axios from "axios";
 import Single from "../../components/single/Single";
 
@@ -8,11 +7,11 @@ const Product = () => {
 
   useEffect(() => {
     axios
-      .get(`${env.REACT_API_URL}/products/1`)
-      .then(function (response) {
+      .get("/products/1")
+      .then((response) => {
         setProduct(response.data);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   }, []);
