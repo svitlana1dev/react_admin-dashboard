@@ -9,3 +9,14 @@ export type User = {
   verified: string;
   amount: string;
 };
+
+export type Product = {
+  id: string;
+  img: string;
+  title: string;
+  color: string;
+  producer: string;
+  price: string;
+  createdAt: string;
+  inStock: string;
+};

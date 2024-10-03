@@ -4,7 +4,7 @@ import { GridColDef } from "@mui/x-data-grid";
 import DataTable from "../../components/dataTable/DataTable";
 import { useState } from "react";
 import Add from "../../components/add/Add";
-// import { userRows } from "../../data";
+import { User } from "types/types";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -56,7 +56,7 @@ const columns: GridColDef[] = [
 
 const Users = () => {
   const [open, setOpen] = useState(false);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
   const toggleModal = () => {
     setOpen((currentState) => !currentState);
   };
@@ -73,6 +73,10 @@ const Users = () => {
       });
   }, []);
 
+  const handleDelete = (id: number) => {
+    setUsers((currentUsers) => currentUsers.filter((user) => +user.id != id));
+  };
+
   return (
     <div className="users">
       <div className="info">
@@ -81,7 +85,12 @@ const Users = () => {
           <img src={require("../../assets/images/icons/plus.png")} alt="add" />
         </button>
       </div>
-      <DataTable slug="users" columns={columns} rows={users} />
+      <DataTable
+        slug="users"
+        columns={columns}
+        rows={users}
+        onDelete={handleDelete}
+      />
       {open && <Add slug="user" columns={columns} onClose={toggleModal} />}
     </div>
   );

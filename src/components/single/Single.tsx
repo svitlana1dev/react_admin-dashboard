@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import {
   Legend,
   Line,
@@ -22,6 +22,12 @@ type Props = {
 };
 
 const Single: FC<Props> = ({ img, verified, info, chart, activities }) => {
+  const [onEdit, setOnEdit] = useState(false);
+
+  const togglerEdit = () => {
+    setOnEdit((currentEdit) => !currentEdit);
+  };
+
   return (
     <div className="single">
       <div className="view">
@@ -33,9 +39,33 @@ const Single: FC<Props> = ({ img, verified, info, chart, activities }) => {
             {Object.entries(info).map((item, index) => (
               <div className="item" key={item[0] + index}>
                 <span className="item-title">{item[0]}</span>
-                <span className="item-value">{item[1]}</span>
+                <div
+                  contentEditable={onEdit}
+                  className={`item-value ${
+                    onEdit ? "item-value--editable" : ""
+                  }`}
+                >
+                  {item[1]}
+                </div>
               </div>
             ))}
+            <div className="edit">
+              {onEdit ? (
+                <button
+                  className="edit-btn edit-btn--successful"
+                  onClick={togglerEdit}
+                >
+                  Save
+                </button>
+              ) : (
+                <button className="edit-btn" onClick={togglerEdit}>
+                  <img
+                    src={require("../../assets/images/icons/view.svg").default}
+                    alt="view"
+                  />
+                </button>
+              )}
+            </div>
           </div>
         </div>
         <hr />
