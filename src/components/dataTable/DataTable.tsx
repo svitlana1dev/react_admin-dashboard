@@ -7,11 +7,12 @@ type Props = {
   columns: GridColDef[];
   rows: object[];
   slug: string;
+  onDelete: (id: number) => void;
 };
 
-const DataTable: FC<Props> = ({ columns, rows, slug }) => {
+const DataTable: FC<Props> = ({ columns, rows, slug, onDelete }) => {
   const handleDelete = (id: number) => {
-    console.log(id);
+    onDelete(id);
   };
 
   const actionColumn: GridColDef = {
@@ -21,12 +22,12 @@ const DataTable: FC<Props> = ({ columns, rows, slug }) => {
     renderCell: (params) => {
       return (
         <div className="action">
-          <Link to={`/${slug}/${params.row.id}`}>
+          {/* <Link to={`/${slug}/${params.row.id}`}>
             <img
               src={require("../../assets/images/icons/view.svg").default}
               alt="view"
             />
-          </Link>
+          </Link> */}
           <div className="delete" onClick={() => handleDelete(params.row.id)}>
             <img
               src={require("../../assets/images/icons/delete.svg").default}

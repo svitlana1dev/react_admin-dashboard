@@ -1,6 +1,7 @@
 @import "../../styles/variables.scss";
 
 .data-table {
+  max-width: 80vw;
   border: 2px solid $soft-bg;
   box-shadow: -1px 7px 7px 2px #ededed;
 

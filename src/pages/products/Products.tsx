@@ -3,6 +3,7 @@ import axios from "axios";
 import DataTable from "../../components/dataTable/DataTable";
 import Add from "../../components/add/Add";
 import { GridColDef } from "@mui/x-data-grid";
+import { Product } from "types/types";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -54,7 +55,7 @@ const columns: GridColDef[] = [
 
 const Products = () => {
   const [open, setOpen] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const toggleModal = () => {
     setOpen((currentState) => !currentState);
   };
@@ -71,6 +72,12 @@ const Products = () => {
       });
   }, []);
 
+  const handleDelete = (id: number) => {
+    setProducts((currentProducts) =>
+      currentProducts.filter((product: Product) => +product.id != id)
+    );
+  };
+
   return (
     <div className="products">
       <div className="info">
@@ -79,7 +86,12 @@ const Products = () => {
           <img src={require("../../assets/images/icons/plus.png")} alt="add" />
         </button>
       </div>
-      <DataTable slug="products" columns={columns} rows={products} />
+      <DataTable
+        slug="products"
+        columns={columns}
+        rows={products}
+        onDelete={handleDelete}
+      />
       {open && <Add slug="product" columns={columns} onClose={toggleModal} />}
     </div>
   );
